@@ -19,6 +19,3 @@ SSD, and YOLOv5. Results show YOLOv5 had the highest mAP rate at 86.2% while als
 the fastest, with inference speed of 7 ms per image. This study provides a mechanism to
 categorize recyclable waste with high average precision and high speed that could reduce both
 the toxic waste in our landfills and the cost of waste management.
-
-![image](https://github.com/SadakhyaNarnur/Waste-management/assets/111921205/d984a511-b555-41da-bb95-3c46002a6207)
-
