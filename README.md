@@ -66,6 +66,41 @@ The entire image dataset is split into 80% training, 10% validation, and 10% for
 The final dataset that is left after all the Data Preprocessing, transformations and augmentations
 has 5879 images distributed over the six classes. The split is done in Roboflow.
 
+Modeling:
+Figure shows the data flow and architecture for Faster R-CNN. The
+dataset versions—with and without SVD—created during the data preparation stage were
+divided into 80% training, 10% validation, and 10% testing each and are hosted on Roboflow.
+During each training phase, the label map and TFRecord files for the training, validation, and
+testing sets are imported into the Google Colab environment using a cURL provided by
+Roboflow. Images resized to 640x640 were used to train this model.
+![image](https://github.com/SadakhyaNarnur/Waste-management/assets/111921205/133cbc11-6a62-49d7-8577-071a6a5fc504)
+
+Next, the training configuration of the model was performed by setting hyperparameter
+values—namely, batch size, number of training steps, and number of evaluation steps. A training
+step is equivalent to processing one batch of training images, while an evaluation step is
+equivalent to evaluating at random one batch of validation images. The greater the batch size, the
+greater the memory that is required to train. Similarly, the greater the number of training steps
+specified, the longer the training but the higher the accuracy. For batch sizes of 16 and 8,
+out-of-memory error resulted during the training job. A batch size of 4 along with 5000 training
+steps and 10 evaluation steps were selected for both with and without SVD training runs.
+Faster R-CNN Data Flow - After configuring the training hyperparameters, the pretrained weights of Faster R-CNN
+were downloaded from the TensorFlow2 repository, as well as the base training configuration
+file. The training configuration file was modified to reflect Pascal VOC detection metrics instead
+of COCO detection metrics so that the evaluation metrics can yield class-specific performance
+results.
+Once the training process begins, the data flow within the network begins with the
+Region Proposal Network, which outputs candidate regions that have a high probability of
+containing objects within them. The number of regions generated in this stage is typically several
+thousand. Features are then extracted from each region proposal. In this study, ResNet 50 was
+selected as the feature extractor for Faster R-CNN. The feature extractor extracts a feature vector
+of a predefined length from each region proposal using the Region of Interest (ROI) pooling layer. This feature vector is then used to assign the proposed region to one of the object classes
+or to the background class by the Faster R-CNN network. Through the mechanism of
+backpropagation discussed earlier, the model is iteratively trained to minimize the loss function.
+Once the training process is complete, the model evaluation is run, which uses log files
+stored in the model directory during the training process to generate the Pascal VOC detection
+metrics. Finally, an inference test is conducted to test the model on testing images the model has
+not seen before and evaluate results.
+
 Summary:
 The preprocessing steps include SVD and image resizing to
 increase model speed, normalization to improve model accuracy, and various data augmentation
