@@ -101,6 +101,63 @@ stored in the model directory during the training process to generate the Pascal
 metrics. Finally, an inference test is conducted to test the model on testing images the model has
 not seen before and evaluate results.
 
+Model Validation and Evaluation:
+Faster R-CNN with ResNet50 has given a reasonably good performance in terms of the
+metrics evaluated on. The Average Precision(AP) is calculated for each of the classes and it was
+observed that Cardboard, Plastic, and Paper were detected with high precision of 0.95, 0.93, and
+0.90 respectively. While metal with an AP of 0.85 and glass with 0.87 AP. Trash had the least
+AP of 0.66 as seen in Table.
+Class Wise Average Precision for Faster R-CNN
+Class - AP
+Cardboard -  0.95
+Paper - 0.93
+Plastic - 0.90
+Glass - 0.87
+Metal - 0.85
+Trash - 0.66
+
+Using the TorchMetrics library the mAP is calculated for IoU of 0.75 which shows the
+Faster R-CNN model to have 74.2% mean average precision. The Time taken for testing is
+observed to be 0.08 secs/image. The Precision is recorded as 73 and Recall to be 70. The training
+and Validation loss plots for Faster R-CNN at 100 Epochs can be seen in Figure 22. A consistent
+learning can be observed in both the loss plots for training as well as Validation. The loss has
+gradually decreased and plateaued at 1500 iterations for training and 125 iterations for
+validation.
+![image](https://github.com/SadakhyaNarnur/Waste-management/assets/111921205/3920b85f-2bab-44c8-8ed0-c54a9fae2165) ![image](https://github.com/SadakhyaNarnur/Waste-management/assets/111921205/ea7c522f-53d8-46e2-9014-1964033b0a90)
+
+Limitations:
+Through the modeling process a number of scope limitations have been considered like
+restricting the detection of objects to six classes of waste, few available pretrained models and
+only considering the image data for detection. Despite these a number of computational
+difficulties in terms of unavailability of computational power has led to the limiting of the
+number of convolutional layers considered and iterations the model could run. The training of
+the models needed high GPU power and time. Unavailability of this had compromised the extent
+of experimenting to optimize the result.
+
+Future Scope: 
+This could be extended to process video recording or live streaming video to detect the
+waste classes as they are dropped. This could be supported with both the model selected for the
+research as both can process image as well as video data. Further with availability of high
+computing power a number of alterations to the architecture can be made and checked for the
+best performing model. The backbone architecture could be changed for Faster R-CNN with
+ResNet101 or higher and RFCN with Inception net, ResNet152 and others. A wide range of
+hyperparameter tuning can be done by increasing the number of steps and epochs. From the
+studies conducted by Huang et al. (2017) it showed the importance of trying different backbone
+architectures for a model and choosing one that fits the data needs.
+
+Conclusion:
+From the research it can be seen that the model Faster R-CNN with ResNet50 has run to
+give a 74.2% mAP for 100 epochs which is a reasonable accuracy for a model with such less
+convolutional layers. On the other hand RFCN with ResNet101 has run to give 72.6% mAP for
+3000 iterations which is a comparatively less performance for a 101 layered convolutional
+network. This clearly shows the higher accuracy rate for Faster R-CNN over RFCN in terms of
+detection. RFCN has shown a better speed in detection compared to Faster R-CNN which can be
+seen as a tradeoff for its accuracy, yet incase of considering a 101 convolutional layered Faster
+R-CNN it could give a higher improvement in terms of accuracy over the present RFCN model
+which would exceed this speed consideration. Based on evaluation of all the metrics it can be
+concluded that Faster R-CNN has shown a good performance in detecting the waste objects in
+images and also efficiently detecting multiple objects with high average precision.
+
 Summary:
 The preprocessing steps include SVD and image resizing to
 increase model speed, normalization to improve model accuracy, and various data augmentation
