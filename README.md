@@ -21,7 +21,7 @@ lighting and angle of each image vary, as Figure 29 shows. Since the size of eac
 relatively small, Yang and Thung (2016) used data augmentation techniques on each image,
 including random rotation, random scaling, random brightness control, random translation, and
 random shearing of the images. They also performed mean subtraction and normalization
-!!!![image](https://github.com/SadakhyaNarnur/Waste-management/assets/111921205/bea2ab15-f96b-4e89-a484-ab4b70649390)
+![image](https://github.com/SadakhyaNarnur/Waste-management/assets/111921205/bea2ab15-f96b-4e89-a484-ab4b70649390)
 
 TrashBox - TrashBox data has been extracted from the web by a comprehensive search. A
 batch-downloading software named WFdownloader has been used to complete the process. This
@@ -123,7 +123,8 @@ and Validation loss plots for Faster R-CNN at 100 Epochs can be seen in Figure 2
 learning can be observed in both the loss plots for training as well as Validation. The loss has
 gradually decreased and plateaued at 1500 iterations for training and 125 iterations for
 validation.
-![image](https://github.com/SadakhyaNarnur/Waste-management/assets/111921205/3920b85f-2bab-44c8-8ed0-c54a9fae2165) ![image](https://github.com/SadakhyaNarnur/Waste-management/assets/111921205/ea7c522f-53d8-46e2-9014-1964033b0a90)
+!!![image](https://github.com/SadakhyaNarnur/Waste-management/assets/111921205/3920b85f-2bab-44c8-8ed0-c54a9fae2165)
+!!![image](https://github.com/SadakhyaNarnur/Waste-management/assets/111921205/ea7c522f-53d8-46e2-9014-1964033b0a90)
 
 Limitations:
 Through the modeling process a number of scope limitations have been considered like
